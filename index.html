@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Azmith Shyne Tafalla - Information Technology student at the Technological University of the Philippines, co-founder of RemitWise, Bitget Web3 Builder and Stellar X Builder.">
+<meta name="author" content="Azmith Shyne Tafalla">
+<meta name="theme-color" content="#0B0B0D">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Azmith Shyne Tafalla">
+<meta property="og:description" content="Engineering on-chain savings infrastructure for cross-border remittances, on Stellar.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Azmith Shyne Tafalla">
+<meta name="twitter:description" content="Engineering on-chain savings infrastructure for cross-border remittances, on Stellar.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230B0B0D'/%3E%3Ctext x='50' y='52' font-family='Helvetica,Arial,sans-serif' font-weight='700' font-size='56' fill='%23ECECE8' text-anchor='middle' dominant-baseline='central'%3EA%3C/text%3E%3C/svg%3E">
+<title>Azmith Shyne Tafalla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<style>
+/* =========================================================
+   Dark-first system. :root carries the complete dark palette;
+   light is redefined in the two guarded blocks below.
+   ========================================================= */
+:root{
+  color-scheme: dark light;
+
+  --bg:        #0B0B0D;
+  --surface:   #131317;
+  --surface-2: #191920;
+  --border:    #26262E;
+  --border-lit:#34343E;
+  --text:      #ECECE8;
+  --muted:     #9B9A94;
+  --faint:     #6E6D68;
+
+  /* In a monochrome system the accent is contrast itself. */
+  --accent:      #ECECE8;
+  --accent-ink:  #0B0B0D;
+  --accent-soft: rgba(236, 236, 232, 0.07);
+  --accent-line: rgba(236, 236, 232, 0.30);
+
+  /* Inverted panel: on a dark page it reads as paper. */
+  --inv-bg:        #FAFAF8;
+  --inv-surface:   #FFFFFF;
+  --inv-surface-2: #F1F1EE;
+  --inv-border:    #E2E2DC;
+  --inv-border-lit:#CBCBC3;
+  --inv-text:      #0D0D10;
+  --inv-muted:     #5F5E59;
+  --inv-faint:     #8B8A84;
+  --inv-accent:      #0D0D10;
+  --inv-accent-ink:  #FFFFFF;
+  --inv-accent-soft: rgba(13, 13, 16, 0.05);
+  --inv-accent-line: rgba(13, 13, 16, 0.22);
+
+  --sans: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --wrap: 1140px;
+  --pad: clamp(1.25rem, 5vw, 4rem);
+}
+
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:        #FAFAF8;
+    --surface:   #FFFFFF;
+    --surface-2: #F3F3F0;
+    --border:    #E4E4DE;
+    --border-lit:#D2D2CA;
+    --text:      #0D0D10;
+    --muted:     #5F5E59;
+    --faint:     #8B8A84;
+
+    --accent:      #0D0D10;
+    --accent-ink:  #FFFFFF;
+    --accent-soft: rgba(13, 13, 16, 0.05);
+    --accent-line: rgba(13, 13, 16, 0.22);
+
+    --inv-bg:        #0B0B0D;
+    --inv-surface:   #131317;
+    --inv-surface-2: #191920;
+    --inv-border:    #26262E;
+    --inv-border-lit:#3A3A44;
+    --inv-text:      #ECECE8;
+    --inv-muted:     #9B9A94;
+    --inv-faint:     #77766F;
+    --inv-accent:      #ECECE8;
+    --inv-accent-ink:  #0B0B0D;
+    --inv-accent-soft: rgba(236, 236, 232, 0.07);
+    --inv-accent-line: rgba(236, 236, 232, 0.30);
+  }
+}
+:root[data-theme="light"]{
+  --bg:        #FAFAF8;
+  --surface:   #FFFFFF;
+  --surface-2: #F3F3F0;
+  --border:    #E4E4DE;
+  --border-lit:#D2D2CA;
+  --text:      #0D0D10;
+  --muted:     #5F5E59;
+  --faint:     #8B8A84;
+
+  --accent:      #0D0D10;
+  --accent-ink:  #FFFFFF;
+  --accent-soft: rgba(13, 13, 16, 0.05);
+  --accent-line: rgba(13, 13, 16, 0.22);
+
+  --inv-bg:        #0B0B0D;
+  --inv-surface:   #131317;
+  --inv-surface-2: #191920;
+  --inv-border:    #26262E;
+  --inv-border-lit:#3A3A44;
+  --inv-text:      #ECECE8;
+  --inv-muted:     #9B9A94;
+  --inv-faint:     #77766F;
+  --inv-accent:      #ECECE8;
+  --inv-accent-ink:  #0B0B0D;
+  --inv-accent-soft: rgba(236, 236, 232, 0.07);
+  --inv-accent-line: rgba(236, 236, 232, 0.30);
+}
+
+/* ---------- base ---------- */
+*, *::before, *::after{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img{ max-width: 100%; display: block; }
+h1, h2, h3, h4{ margin: 0; font-weight: 600; text-wrap: balance; letter-spacing: -0.02em; }
+p{ margin: 0; }
+ul{ margin: 0; padding: 0; list-style: none; }
+a{ color: inherit; }
+
+:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.wrap{
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+.label{
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position: sticky; top: 0; z-index: 30;
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.topbar-in{
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1.5rem; min-height: 58px;
+}
+.brand{
+  font-weight: 600; font-size: 0.9375rem; letter-spacing: -0.01em;
+  text-decoration: none; white-space: nowrap;
+}
+.navlinks{
+  display: flex; gap: 1.5rem;
+  overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;
+  -webkit-mask-image: linear-gradient(to right, #000 88%, transparent);
+          mask-image: linear-gradient(to right, #000 88%, transparent);
+}
+.navlinks::-webkit-scrollbar{ display: none; }
+.navlinks a{
+  font-family: var(--mono); font-size: 0.6875rem; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; white-space: nowrap;
+  padding-block: 4px; border-bottom: 1px solid transparent;
+  transition: color .2s ease, border-color .2s ease;
+}
+.navlinks a:hover{ color: var(--text); border-bottom-color: var(--accent); }
+
+/* ---------- hero ---------- */
+.hero{
+  padding-block: clamp(3rem, 9vh, 6rem) clamp(3rem, 8vh, 5rem);
+  border-bottom: 1px solid var(--border);
+}
+.hero-grid{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+@media (max-width: 760px){
+  .hero-grid{ grid-template-columns: 1fr; gap: 2rem; }
+  .portrait-frame{ order: -1; }
+}
+
+.status{
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  font-family: var(--mono); font-size: 0.6875rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+}
+.dot{
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent); flex: 0 0 auto;
+}
+@media (prefers-reduced-motion: no-preference){
+  .dot{ animation: pulse 2.4s ease-in-out infinite; }
+  @keyframes pulse{
+    0%, 100%{ opacity: 1; box-shadow: 0 0 0 0 var(--accent-line); }
+    50%     { opacity: .75; box-shadow: 0 0 0 5px transparent; }
+  }
+}
+
+.hero-name{
+  margin-top: 1.5rem;
+  font-size: clamp(2.5rem, 6.5vw, 4.25rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+.hero-thesis{
+  margin-top: 1.1rem;
+  max-width: 34ch;
+  font-size: clamp(1.0625rem, 2vw, 1.375rem);
+  line-height: 1.45;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+.hero-thesis strong{ color: var(--text); font-weight: 500; }
+
+.biobar{
+  margin-top: 1.75rem;
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 0.5rem 1.35rem;
+  font-family: var(--mono); font-size: 0.75rem;
+  color: var(--muted);
+}
+.biobar .sep{ color: var(--border-lit); }
+
+.hero-actions{ display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 2rem; }
+.btn{
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  font-family: var(--mono); font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  text-decoration: none; padding: 0.8rem 1.25rem;
+  border: 1px solid var(--border-lit); border-radius: 4px;
+  transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+}
+.btn:hover{ transform: translateY(-1px); }
+.btn-primary{ background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn-primary:hover{ filter: brightness(1.08); }
+.btn-ghost:hover{ border-color: var(--accent); color: var(--accent); }
+.btn .arw{ transition: transform .2s ease; }
+.btn:hover .arw{ transform: translateX(3px); }
+
+.portrait-frame{
+  position: relative;
+  width: clamp(150px, 26vw, 208px);
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--border-lit);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+.portrait-frame img{
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 16%;
+}
+
+/* ---------- section shell ---------- */
+.sec{ padding-block: clamp(3rem, 8vh, 5.5rem); border-bottom: 1px solid var(--border); }
+.sec-grid{
+  display: grid;
+  grid-template-columns: 148px minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: start;
+}
+.sec-rail{ position: sticky; top: 86px; }
+@media (max-width: 860px){
+  .sec-grid{ grid-template-columns: 1fr; gap: 1.1rem; }
+  .sec-rail{ position: static; }
+}
+.prose{ max-width: 66ch; color: var(--muted); }
+.prose p + p{ margin-top: 1.05em; }
+.prose strong{ color: var(--text); font-weight: 500; }
+
+/* ---------- cards ---------- */
+.card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.15rem 1.25rem;
+  transition: border-color .2s ease, transform .2s ease, background .2s ease;
+}
+.card:hover{ border-color: var(--border-lit); transform: translateY(-2px); }
+
+/* ---------- RemitWise feature ---------- */
+.feature{
+  /* The one bold gesture: this whole section flips to the opposite ground.
+     Rebinding the tokens locally flips every child with it. */
+  --bg:         var(--inv-bg);
+  --surface:    var(--inv-surface);
+  --surface-2:  var(--inv-surface-2);
+  --border:     var(--inv-border);
+  --border-lit: var(--inv-border-lit);
+  --text:       var(--inv-text);
+  --muted:      var(--inv-muted);
+  --faint:      var(--inv-faint);
+  --accent:      var(--inv-accent);
+  --accent-ink:  var(--inv-accent-ink);
+  --accent-soft: var(--inv-accent-soft);
+  --accent-line: var(--inv-accent-line);
+
+  padding-block: clamp(3.25rem, 9vh, 6rem);
+  background: var(--bg);
+  color: var(--text);
+}
+.feature-head{
+  display: flex; flex-wrap: wrap; align-items: flex-end;
+  justify-content: space-between; gap: 1rem 2rem;
+}
+.feature-name{
+  margin-top: 0.9rem;
+  font-size: clamp(2.25rem, 5.5vw, 3.25rem);
+  font-weight: 700; line-height: 1; letter-spacing: -0.035em;
+}
+.feature-sub{ margin-top: 0.6rem; color: var(--muted); max-width: 46ch; }
+
+.chips{ display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.5rem; }
+.chips span{
+  font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.06em;
+  color: var(--muted); background: var(--bg);
+  border: 1px solid var(--border); border-radius: 4px;
+  padding: 0.32rem 0.6rem;
+}
+.chips span.lit{ color: var(--accent); border-color: var(--accent-line); background: var(--accent-soft); }
+
+/* --- architecture flow --- */
+.flow-wrap{ margin-top: 2.25rem; }
+.flow{
+  display: flex; align-items: stretch; gap: 0.75rem;
+  margin-top: 1rem;
+}
+.flow-node{
+  flex: 1 1 0; min-width: 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.95rem 1rem 1.05rem;
+}
+.flow-node.is-contract{ border-color: var(--accent-line); background: var(--accent-soft); }
+.flow-node.is-vault{ border-left: 2px solid var(--accent); }
+.flow-k{
+  font-family: var(--mono); font-size: 0.625rem; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint);
+  display: block;
+}
+.flow-node.is-contract .flow-k{ color: var(--accent); }
+.flow-t{ margin-top: 0.45rem; font-weight: 600; font-size: 0.9375rem; letter-spacing: -0.01em; }
+.flow-d{ margin-top: 0.2rem; font-size: 0.8125rem; color: var(--muted); line-height: 1.45; }
+.flow-amt{
+  font-family: var(--mono); font-size: 0.8125rem; color: var(--text);
+  margin-top: 0.5rem; font-variant-numeric: tabular-nums;
+}
+.flow-arrow{
+  flex: 0 0 auto; align-self: center;
+  font-family: var(--mono); color: var(--border-lit); font-size: 1rem;
+}
+.flow-out{ flex: 1 1 0; min-width: 0; display: grid; gap: 0.6rem; }
+
+@media (max-width: 780px){
+  .flow{ flex-direction: column; }
+  .flow-arrow{ align-self: flex-start; margin-left: 1rem; transform: rotate(90deg); }
+}
+
+/* --- feature list --- */
+.feat-grid{
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.75rem; margin-top: 2.25rem;
+}
+.feat-grid h4{ font-size: 0.9375rem; font-weight: 600; }
+.feat-grid p{ margin-top: 0.3rem; font-size: 0.8125rem; color: var(--muted); line-height: 1.5; }
+
+/* ---------- records ---------- */
+.record{
+  display: grid; grid-template-columns: 116px minmax(0, 1fr);
+  gap: 0.3rem 1.5rem;
+  padding-block: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+.record:first-child{ border-top: 0; padding-top: 0; }
+.record-when{
+  font-family: var(--mono); font-size: 0.75rem; color: var(--faint);
+  padding-top: 0.22rem; white-space: nowrap; font-variant-numeric: tabular-nums;
+}
+.record-title{ font-size: 1.0625rem; font-weight: 600; }
+.record-org{ margin-top: 0.15rem; font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+.record-note{ margin-top: 0.6rem; font-size: 0.9rem; color: var(--muted); max-width: 60ch; line-height: 1.55; }
+.record-note li{ position: relative; padding-left: 0.95rem; margin-top: 0.3rem; }
+.record-note li::before{
+  content: ""; position: absolute; left: 0; top: 0.62em;
+  width: 4px; height: 1px; background: var(--accent);
+}
+@media (max-width: 560px){
+  .record{ grid-template-columns: 1fr; gap: 0.4rem; }
+  .record-when{ padding-top: 0; }
+}
+
+/* ---------- credentials ---------- */
+.cred-grid{ display: grid; grid-template-columns: repeat(auto-fit, minmax(258px, 1fr)); gap: 0.75rem; }
+.cred-top{ display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.cred-when{ font-family: var(--mono); font-size: 0.6875rem; color: var(--faint); white-space: nowrap; }
+.cred-name{ font-size: 0.9375rem; font-weight: 600; line-height: 1.3; }
+.cred-org{ margin-top: 0.25rem; font-family: var(--mono); font-size: 0.6875rem; color: var(--muted); }
+.cred-tags{ display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.7rem; }
+.cred-tags span{
+  font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.05em;
+  color: var(--faint); border: 1px solid var(--border); border-radius: 3px;
+  padding: 0.18rem 0.42rem;
+}
+
+/* ---------- skills ---------- */
+.tiers{ display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 0.75rem; }
+.tier-k{
+  font-family: var(--mono); font-size: 0.6875rem; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);
+}
+.tier-list{ margin-top: 0.7rem; }
+.tier-list li{
+  font-size: 0.875rem; padding-block: 0.32rem;
+  border-top: 1px solid var(--border); color: var(--muted);
+}
+.tier-list li:first-child{ border-top: 0; }
+
+/* ---------- contact ---------- */
+.contact-grid{ display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.75rem; }
+.contact-grid a{ text-decoration: none; display: block; }
+.contact-k{ font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); }
+.contact-v{ margin-top: 0.4rem; font-size: 0.9rem; word-break: break-word; }
+.contact-grid a:hover .contact-v{ color: var(--accent); }
+
+/* ---------- footer ---------- */
+.foot{
+  padding-block: 2rem 2.75rem;
+  display: flex; flex-wrap: wrap; gap: 0.6rem 2rem; justify-content: space-between;
+  font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--faint);
+}
+
+/* ---------- reveal ---------- */
+.has-js .reveal{
+  opacity: 0; transform: translateY(12px);
+  transition: opacity .6s cubic-bezier(.2,.7,.3,1), transform .6s cubic-bezier(.2,.7,.3,1);
+}
+.has-js .reveal.in{ opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{ animation-duration: .001ms !important; transition-duration: .001ms !important; }
+  .has-js .reveal{ opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="#top">Azmith Shyne Tafalla</a>
+    <nav class="navlinks" aria-label="Sections">
+      <a href="#work">RemitWise</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="status reveal"><span class="dot" aria-hidden="true"></span>Open to Web3 internships and builds</span>
+
+        <h1 class="hero-name reveal">Azmith Shyne Tafalla</h1>
+
+        <p class="hero-thesis reveal">
+          Engineering <strong>on-chain savings infrastructure</strong> for cross-border remittances,
+          on Stellar.
+        </p>
+
+        <div class="biobar reveal">
+          <span>Manila, Philippines</span>
+          <span class="sep" aria-hidden="true">/</span>
+          <span>BS Information Technology, TUP</span>
+          <span class="sep" aria-hidden="true">/</span>
+          <span>He/Him</span>
+        </div>
+
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary" href="https://remitwise-tau.vercel.app" target="_blank" rel="noopener noreferrer">
+            View RemitWise <span class="arw" aria-hidden="true">&rarr;</span>
+          </a>
+          <a class="btn btn-ghost" href="mailto:azmithshynetafalla@gmail.com">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="portrait-frame reveal">
+        <img src="photo.png" alt="Portrait of Azmith Shyne Tafalla" width="313" height="416">
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REMITWISE ================= -->
+  <section class="feature" id="work">
+    <div class="wrap">
+      <div class="feature-head reveal">
+        <div>
+          <p class="label">Selected work / Co-founder</p>
+          <h2 class="feature-name">RemitWise</h2>
+          <p class="feature-sub">
+            A savings platform that retains part of every remittance the moment it arrives,
+            enforced by a smart contract rather than by discipline.
+          </p>
+        </div>
+        <div class="chips" style="margin-top:0;">
+          <span class="lit">Live on Stellar Testnet</span>
+        </div>
+      </div>
+
+      <div class="chips reveal">
+        <span>Stellar</span>
+        <span>Soroban</span>
+        <span>Rust</span>
+        <span>USDC</span>
+        <span>Next.js</span>
+        <span>Reflector Oracle</span>
+        <span>Non-custodial</span>
+      </div>
+
+      <!-- architecture -->
+      <div class="flow-wrap reveal">
+        <p class="label">Settlement architecture</p>
+        <div class="flow">
+          <div class="flow-node">
+            <span class="flow-k">01 / Arrives</span>
+            <p class="flow-t">Remittance in USDC</p>
+            <p class="flow-d">Sent from abroad, settles on Stellar in seconds.</p>
+            <p class="flow-amt">$500.00</p>
+          </div>
+
+          <div class="flow-arrow" aria-hidden="true">&rarr;</div>
+
+          <div class="flow-node is-contract">
+            <span class="flow-k">02 / Splits</span>
+            <p class="flow-t">Soroban contract</p>
+            <p class="flow-d">Retains the savings share and releases the remainder in one atomic transaction.</p>
+            <p class="flow-amt">Atomic / on-chain</p>
+          </div>
+
+          <div class="flow-arrow" aria-hidden="true">&rarr;</div>
+
+          <div class="flow-out">
+            <div class="flow-node is-vault">
+              <span class="flow-k">03a / Retained</span>
+              <p class="flow-t">Savings vault &middot; 20%</p>
+              <p class="flow-amt">$100.00</p>
+            </div>
+            <div class="flow-node">
+              <span class="flow-k">03b / Released</span>
+              <p class="flow-t">Spendable wallet &middot; 80%</p>
+              <p class="flow-amt">$400.00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feat-grid reveal">
+        <div class="card">
+          <h4>Contract-enforced split</h4>
+          <p>The savings rule lives in a deployed Soroban contract, not in a backend that could be changed or fail.</p>
+        </div>
+        <div class="card">
+          <h4>Gasless onboarding</h4>
+          <p>Sponsored account reserves, trustlines and fees, so a new user never has to acquire XLM first.</p>
+        </div>
+        <div class="card">
+          <h4>Goal allocation</h4>
+          <p>Retained funds flow into user-defined goals for emergency, education, medical, housing and business.</p>
+        </div>
+        <div class="card">
+          <h4>Dual-currency balances</h4>
+          <p>Every figure shown in USDC and Philippine pesos, using live FX from the Reflector oracle.</p>
+        </div>
+        <div class="card">
+          <h4>Non-custodial by design</h4>
+          <p>Users hold their own keys. Retained savings remain withdrawable at any time, with no lock-up.</p>
+        </div>
+        <div class="card">
+          <h4>Instant settlement detection</h4>
+          <p>Incoming payments surface on a live dashboard with sender, amount and memo as they land.</p>
+        </div>
+      </div>
+
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary" href="https://remitwise-tau.vercel.app" target="_blank" rel="noopener noreferrer">
+          Open the live build <span class="arw" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section class="sec" id="experience">
+    <div class="wrap sec-grid">
+      <div class="sec-rail"><p class="label reveal">Experience</p></div>
+      <div class="reveal">
+
+        <div class="record">
+          <div class="record-when">2026 &ndash; Present</div>
+          <div>
+            <h3 class="record-title">Co-founder</h3>
+            <p class="record-org">RemitWise</p>
+            <ul class="record-note">
+              <li>Wrote the Soroban smart contract that splits each incoming USDC transfer atomically, retaining the savings share on-chain.</li>
+              <li>Built the gasless wallet layer so that first-time users never interact with crypto mechanics.</li>
+              <li>Shipped the product to a live Stellar Testnet deployment.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="record">
+          <div class="record-when">2026 &ndash; Present</div>
+          <div>
+            <h3 class="record-title">Web3 Builder</h3>
+            <p class="record-org">Bitget &middot; Community and events</p>
+            <ul class="record-note">
+              <li>Host and organise events introducing students and newcomers to blockchain and UEX trading.</li>
+              <li>Translate wallets, custody and settlement into plain language for audiences with no prior exposure.</li>
+              <li>Work hands-on in the protocol space alongside the teaching, rather than presenting it second-hand.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="record">
+          <div class="record-when">2026 &ndash; Present</div>
+          <div>
+            <h3 class="record-title">Stellar X Builder</h3>
+            <p class="record-org">Stellar developer ecosystem</p>
+            <ul class="record-note">
+              <li>Build and test Soroban contract applications, and take part in builder programmes and showcases.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="record">
+          <div class="record-when">Present</div>
+          <div>
+            <h3 class="record-title">Social Media Manager, Co-Lead</h3>
+            <p class="record-org">Microsoft Student Community PH</p>
+            <ul class="record-note">
+              <li>Co-lead the organisation's social presence, planning and publishing content across its channels.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EDUCATION ================= -->
+  <section class="sec" id="education">
+    <div class="wrap sec-grid">
+      <div class="sec-rail"><p class="label reveal">Education</p></div>
+      <div class="reveal">
+
+        <div class="record">
+          <div class="record-when">2025 &ndash; Present</div>
+          <div>
+            <h3 class="record-title">Technological University of the Philippines</h3>
+            <p class="record-org">Taguig Campus &middot; BS Information Technology, second year</p>
+            <p class="record-note">
+              Member of the Manila Technician Institute Computer Society. Coursework centred on
+              programming, database management and web development.
+            </p>
+          </div>
+        </div>
+
+        <div class="record">
+          <div class="record-when">2023 &ndash; 2025</div>
+          <div>
+            <h3 class="record-title">Olivarez College, Para&ntilde;aque City</h3>
+            <p class="record-org">Senior High School &middot; STEM strand</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CREDENTIALS ================= -->
+  <section class="sec" id="credentials">
+    <div class="wrap sec-grid">
+      <div class="sec-rail"><p class="label reveal">Credentials</p></div>
+      <div class="reveal">
+        <div class="cred-grid">
+
+          <div class="card">
+            <div class="cred-top">
+              <p class="cred-name">Blockchain4Youth Learning Hub Program</p>
+              <span class="cred-when">Jul 2026</span>
+            </div>
+            <p class="cred-org">Bitget &middot; Completion</p>
+            <div class="cred-tags"><span>Blockchain</span><span>Web3</span></div>
+          </div>
+
+          <div class="card">
+            <div class="cred-top">
+              <p class="cred-name">Intellectual Property Awareness Seminar</p>
+              <span class="cred-when">Jun 2026</span>
+            </div>
+            <p class="cred-org">Seminar</p>
+            <div class="cred-tags"><span>IP &amp; Policy</span></div>
+          </div>
+
+          <div class="card">
+            <div class="cred-top">
+              <p class="cred-name">The Trust Protocol: Blockchain Basics</p>
+              <span class="cred-when">Mar 2026</span>
+            </div>
+            <p class="cred-org">Avalanche Team1 &middot; Participation</p>
+            <div class="cred-tags"><span>Protocol Design</span><span>Blockchain</span></div>
+          </div>
+
+          <div class="card">
+            <div class="cred-top">
+              <p class="cred-name">Builder Showcase &times; WOCEE 2026</p>
+              <span class="cred-when">Jan 2026</span>
+            </div>
+            <p class="cred-org">Cryptita Plays &middot; Participation</p>
+            <div class="cred-tags"><span>Builder Showcase</span></div>
+          </div>
+
+          <div class="card">
+            <div class="cred-top">
+              <p class="cred-name">From Imagination to Innovation: Generative AI</p>
+              <span class="cred-when">Oct 2025</span>
+            </div>
+            <p class="cred-org">Seminar</p>
+            <div class="cred-tags"><span>Generative AI</span></div>
+          </div>
+
+          <div class="card">
+            <div class="cred-top">
+              <p class="cred-name">MTICS IT Seminar with Gen AI Philippines</p>
+              <span class="cred-when">Jan 2025</span>
+            </div>
+            <p class="cred-org">Gen AI Philippines &middot; Participation</p>
+            <div class="cred-tags"><span>Generative AI</span></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section class="sec" id="skills">
+    <div class="wrap sec-grid">
+      <div class="sec-rail"><p class="label reveal">Skills</p></div>
+      <div class="reveal">
+        <div class="tiers">
+
+          <div class="card">
+            <p class="tier-k">Smart contracts &amp; blockchain</p>
+            <ul class="tier-list">
+              <li>Soroban smart contracts</li>
+              <li>Rust</li>
+              <li>Stellar</li>
+              <li>USDC and stablecoins</li>
+              <li>Non-custodial wallet design</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <p class="tier-k">Web &amp; application</p>
+            <ul class="tier-list">
+              <li>Next.js</li>
+              <li>Python</li>
+              <li>C</li>
+              <li>HTML and CSS</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <p class="tier-k">Data &amp; infrastructure</p>
+            <ul class="tier-list">
+              <li>SQL</li>
+              <li>Microsoft SQL Server</li>
+              <li>MySQL</li>
+              <li>SQL Server Management Studio</li>
+              <li>Vercel</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <p class="tier-k">Leadership &amp; community</p>
+            <ul class="tier-list">
+              <li>Technical speaking</li>
+              <li>Workshop facilitation</li>
+              <li>Community operations</li>
+              <li>Event hosting</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="sec" id="contact" style="border-bottom:0;">
+    <div class="wrap sec-grid">
+      <div class="sec-rail"><p class="label reveal">Contact</p></div>
+      <div class="reveal">
+        <div class="contact-grid">
+          <a class="card" href="mailto:azmithshynetafalla@gmail.com">
+            <span class="contact-k">Email</span>
+            <span class="contact-v">azmithshynetafalla@gmail.com</span>
+          </a>
+          <a class="card" href="https://github.com/Azi-it" target="_blank" rel="noopener noreferrer">
+            <span class="contact-k">GitHub</span>
+            <span class="contact-v">github.com/Azi-it</span>
+          </a>
+          <a class="card" href="https://www.linkedin.com/in/azmith-shyne-tafalla-438a8841a" target="_blank" rel="noopener noreferrer">
+            <span class="contact-k">LinkedIn</span>
+            <span class="contact-v">azmith-shyne-tafalla</span>
+          </a>
+          <a class="card" href="https://remitwise-tau.vercel.app" target="_blank" rel="noopener noreferrer">
+            <span class="contact-k">Project</span>
+            <span class="contact-v">remitwise-tau.vercel.app</span>
+          </a>
+          <a class="card" href="https://www.facebook.com/azmith.allafat/" target="_blank" rel="noopener noreferrer">
+            <span class="contact-k">Facebook</span>
+            <span class="contact-v">azmith.allafat</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <span>Azmith Shyne Tafalla &middot; Manila, Philippines</span>
+  <span>Building on Stellar</span>
+</footer>
+
+<script>
+(function () {
+  document.documentElement.classList.add('has-js');
+  var targets = document.querySelectorAll('.reveal');
+
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
